@@ -180,3 +180,202 @@ streamlit run streamlit_app.py
 ---
 
 # 🧩 **Key Modules Explained**
+### 1. **parallel_break_loader.py**
+
+Handles full pipeline:
+
+* Chunking
+* Deduplication
+* Scoring
+* Saving
+* Parallel execution
+
+### 2. **text_breaker.py**
+
+* Cleans text
+* Splits into fixed-size word groups
+
+### 3. **checker.py**
+
+* Applies rules
+* Scores text
+* Stores results
+
+### 4. **storage.py**
+
+* SQLite backend
+* Query builder
+* Hash existence check
+
+### 5. **search_save.py**
+
+* Regex / keyword search
+* CSV export
+
+### 6. **emailer.py**
+
+* Email summary
+* HTML email generator
+
+### 7. **storage_improver.py**
+
+* Auto-rule suggestions based on DB frequency
+
+---
+
+# ⚙️ **Installation & Setup**
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/springboardmentor587-star/Python-Parallel-Text-Handling-Processor.git
+cd Python-Parallel-Text-Handling-Processor
+```
+
+### **2. Create & Activate Virtual Environment**
+
+```
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+```
+
+### **3. Install Dependencies**
+
+```
+pip install -r requirements.txt
+```
+
+### **4. Environment Variables**
+
+Create `.env` file:
+
+```
+DB_PATH=checks.db
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+EMAIL_ADDRESS=youremail@gmail.com
+EMAIL_PASSWORD=yourapppassword
+```
+
+### **5. Folder Setup**
+
+```
+mkdir data/support_text_files
+mkdir output
+mkdir improver_output
+```
+
+---
+
+# 🧪 **Running the Pipeline**
+
+```
+python run.py
+```
+
+# 🖥️ **Running the Streamlit App**
+
+```
+streamlit run streamlit_app.py
+```
+
+---
+
+# 📊 **Sample Outputs**
+
+* Processed chunks
+* Scores
+* Applied rule IDs
+* CSV exports
+* PDF Reports
+* Suggested rules
+* Email summary
+
+---
+
+# 🤖 **Storage Improver (Rule Auto-Generator)**
+
+AI-like rule analyzer that:
+
+* scans high-frequency words/phrases
+* detects missing rules
+* suggests new rule patterns
+
+Output → JSON suggestions saved in:
+
+```
+improver_output/suggestions.json
+```
+
+---
+
+# 📧 **Email Summary**
+
+Automatically compiles:
+
+* recent scores
+* high severity alerts
+* rule hit summary
+
+You can enable/disable email sending in `run.py`.
+
+---
+
+# 🛡 **Deduplication Logic**
+
+Before scoring, each chunk is hashed:
+
+```
+sha256(text)
+```
+
+If hash already exists in DB → **skipped**.
+This saves compute and prevents duplicates.
+
+---
+
+# 🧱 **Tech Stack**
+
+| Component     | Technology               |
+| ------------- | ------------------------ |
+| Language      | Python                   |
+| DB            | SQLite                   |
+| UI            | Streamlit                |
+| Parallelism   | ThreadPoolExecutor       |
+| Email         | SMTP                     |
+| Reports       | ReportLab                |
+| Visualization | Plotly, WordCloud        |
+| Logging       | Python Logging Framework |
+
+---
+
+# 📌 **Future Enhancements**
+
+* Add ML-based scoring (BERT, spaCy)
+* Real-time monitoring dashboard
+* API layer (FastAPI)
+* Vector search with embeddings
+* Rule auto-learning (machine learning)
+* Docker deployment
+
+---
+
+## 👥 Contributors
+
+### 👨‍💼 Project Lead  
+- **Charan Teja Mangali** — Lead Developer, System Architect & Mentor
+
+### 🎓 Student Contributors  
+- **Student Name 1** —   
+- **Student Name 2** —   
+- **Student Name 3** —   
+- **Student Name 4** —    
+
+---
+
+# ⭐ **Support the Project**
+
+If you like this project, consider giving it a ⭐ on GitHub!
+
+---
